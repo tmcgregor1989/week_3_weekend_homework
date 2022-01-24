@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    <form action="/rps/players" method='post'>
+        <label for="player_1_name">Player 1 Name</label>
+        <input type="text" name="player_1_name" id="player_1_name">
+        <label for="player_1_move">Player 1 move</label>
+        <select id="player_1_move" name="player_1_move">
+            <option value="rock">rock</option>
+            <option value="paper">paper</option>
+            <option value="scissors">scissors</option>
+        </select>
+
+        <label for="player_2_name">Player 2 Name</label>
+        <input type="text" name="player_2_name" id="player_2_name">
+        <label for="player_2_move">Player 2 move</label>
+        <select id="player_2_move" name="player_2_move">
+            <option value="rock">rock</option>
+            <option value="paper">paper</option>
+            <option value="scissors">scissors</option>
+        </select>
+
+       <input type="submit" value="play game">
+    </form>
+
+
+
+        <p> {% if outcome == player_1 %}
+            {{player_1.name}} wins using {{player_1.move}}
+
+            {% elif outcome == player_2 %}
+            {{player_2.name}} wins using {{player_2.move}}
+
+            {% if outcome == None %}
+            Draw
+
+            {% endif %}
+
+
+        </p>
+
+        {% endblock %}
